@@ -1,0 +1,54 @@
+{
+  "header": {
+    "icon": {
+      "name": "Momma",
+      "color": "orange",
+      "style": "float"
+    },
+    "name": "All About Momma",
+    "color": "default",
+    "nav": [
+      {
+        "href": "",
+        "label": "Home"
+      },
+      {
+        "href": "category/pregnancy",
+        "label": "Pregnancy"
+      },
+      {
+        "href": "category/baby",
+        "label": "Baby"
+      },
+      {
+        "href": "category/toddler",
+        "label": "Toddler"
+      },
+      {
+        "href": "category/travel",
+        "label": "Travel"
+      },
+      {
+        "href": "about",
+        "label": "About"
+      },
+      {
+        "href": "contact",
+        "label": "Contact"
+      }
+    ]
+  },
+  "footer": {
+    "color": "default",
+    "social": {
+      "facebook": "/",
+      "twitter": "/",
+      "instagram": "/"
+    }
+  },
+  "theme": {
+    "color": "blue",
+    "font": "montserrat",
+    "darkMode": "system"
+  }
+}

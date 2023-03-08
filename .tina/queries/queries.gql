@@ -1,0 +1,66 @@
+query pageQuery {
+  ...LayoutQueryFragment
+  postConnection {
+    edges {
+      node {
+        id
+        _values
+        date
+        author {
+          ... on Author {
+            ...AuthorParts
+          }
+        }
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+}
+
+query contentQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  page(relativePath: $relativePath) {
+    ...PageParts
+  }
+}
+
+query blogPostQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  post(relativePath: $relativePath) {
+    ...PostParts
+    author {
+      ... on Author {
+        name
+        avatar
+      }
+    }
+  }
+}
+
+query categoryQuery($relativePath: String!, $category: String!) {
+  ...LayoutQueryFragment
+  category(relativePath: $relativePath) {
+    ...CategoryParts
+  }
+  postConnection 
+  ( filter: { category: { eq: $category } } )
+  {
+    edges {
+      node {
+        id
+        _values
+        date
+        author {
+          ... on Author {
+            ...AuthorParts
+          }
+        }
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+}
