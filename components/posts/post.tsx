@@ -65,7 +65,7 @@ const components: Components<{
   TableOfContents: {
     title: string;
     hLevel: string;
-    headings: TinaMarkdownContent;
+    headings: object;
   };
 }> = {
   code_block: (props) => <Prism {...props} />,
