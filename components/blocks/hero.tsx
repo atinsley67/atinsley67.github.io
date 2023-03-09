@@ -28,6 +28,8 @@ export const Hero = ({ data, parentField }) => {
           data-tinafield={`${parentField}.image`}
           className="relative"
         >
+        {data.image && (
+        <>
           <img
             className="absolute z-0 w-full rounded-lg max-w-xs max-w-none h-auto blur-xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light max-h-[35rem] object-cover object-center object-top object-position-y-2/3"
             src={data.image.src}
@@ -38,6 +40,8 @@ export const Hero = ({ data, parentField }) => {
             alt={data.image.alt}
             src={data.image.src}
           />
+        </>
+        )}
         <div className="absolute z-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 justify-center overflow-hidden ">
             {data.tagline && (
               <h2

@@ -41,8 +41,7 @@ export default function BlogPostPage(
     variables: props.variables,
     data: props.data,
   });
-
-  if (data && data.post) {
+  if (data && 'post' in data && data.post) {
     const dataWithTOCHeadings = addTOCData(data);
     return (
       <Layout rawData={dataWithTOCHeadings} data={dataWithTOCHeadings.global as any}>
@@ -50,7 +49,7 @@ export default function BlogPostPage(
       </Layout>
     );
   }
-  if (data) {
+  if (data && 'page' in data && data.page) {
     return (
       <Layout rawData={data} data={data.global as any}>
         <Blocks {...data.page} />
@@ -85,7 +84,7 @@ export const getStaticProps = async ({ params }) => {
         variables: tinaProps.variables,
       },
     };
-  };
+  }
   return
 };
 
@@ -93,7 +92,7 @@ export const getStaticProps = async ({ params }) => {
 export const getStaticPaths = async () => {
   const postsListData = await client.queries.postConnection();
   const pagesListData = await client.queries.pageConnection();
-  const listData = postsListData.data.postConnection.edges.concat(pagesListData.data.pageConnection.edges);
+  const listData = [...postsListData.data.postConnection.edges, ...pagesListData.data.pageConnection.edges];
   return {
     paths: listData.map((item) => ({
       params: { filename: item.node._sys.filename },

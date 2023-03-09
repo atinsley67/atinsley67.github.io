@@ -170,7 +170,6 @@ export const IconOptions = {
       fontWeight={700}
       style={{
         lineHeight: 1.25,
-        InkscapeFontSpecification: "&quot",
         fontVariantLigatures: "normal",
         fontVariantCaps: "normal",
         fontVariantNumeric: "normal",
@@ -182,7 +181,6 @@ export const IconOptions = {
         x={92.7712}
         y={135.7196}
         style={{
-          InkscapeFontSpecification: "&quot",
           fontVariantLigatures: "normal",
           fontVariantCaps: "normal",
           fontVariantNumeric: "normal",
@@ -195,7 +193,6 @@ export const IconOptions = {
         x={92.7712}
         y={143.8118}
         style={{
-          InkscapeFontSpecification: "&quot",
           fontVariantLigatures: "normal",
           fontVariantCaps: "normal",
           fontVariantNumeric: "normal",
