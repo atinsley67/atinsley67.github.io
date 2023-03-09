@@ -193,7 +193,7 @@ const components: Components<{
             target="_blank"
             rel="nofollow noopener"
             className="no-underline">
-            <img decoding="async" border="0" src={imageUrl} className="mx-auto px-2 my-4"/>
+            <img decoding="async" src={imageUrl} className="mx-auto px-2 my-4 border-0"/>
             <button
               className={`mx-auto z-10 relative flex text-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out  rounded-lg transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap ${
                   buttonColorClasses[theme.color]
