@@ -85,7 +85,7 @@ export const getStaticProps = async ({ params }) => {
         variables: tinaProps.variables,
       },
     };
-  };
+  }
   return
 };
 
