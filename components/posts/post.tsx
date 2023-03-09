@@ -55,13 +55,17 @@ const components: Components<{
     disclaimer?: TinaMarkdownContent;
   };
   AffiliateLink: {
-    productDescription: string;
-    imgURL: string;
+    altText: string;
+    affiliateSnippet: string;
+    imageURL: string;
     linkURL: string;
+    image: string;
+    button: boolean;
   };
   TableOfContents: {
     title: string;
     hLevel: string;
+    headings: TinaMarkdownContent;
   };
 }> = {
   code_block: (props) => <Prism {...props} />,
