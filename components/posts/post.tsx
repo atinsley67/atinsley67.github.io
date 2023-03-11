@@ -188,12 +188,13 @@ const components: Components<{
     const linkUrl = props.linkURL || linkMatch ? linkMatch[1] : null;
     if (linkUrl && imageUrl) {
       return (
-        <div className="md:float-left mr-4 mt-0 justify-center items-center">
+        <>
+        <div className="md:float-left ml-2 mr-6 mt-0 mb-6 justify-center items-center">
           <a href={linkUrl}
             target="_blank"
             rel="nofollow noopener"
             className="no-underline">
-            <img decoding="async" src={imageUrl} className="mx-auto px-2 my-4 border-0"/>
+            <img decoding="async" src={imageUrl} className="mx-auto px-2 mt-2 mb-4 border-0"/>
             <button
               className={`mx-auto z-10 relative flex text-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out  rounded-lg transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap ${
                   buttonColorClasses[theme.color]
@@ -202,6 +203,7 @@ const components: Components<{
             </button>
           </a>
         </div>
+        </>
       )
     }
     else {
@@ -210,8 +212,8 @@ const components: Components<{
   },
   TableOfContents: (props) => {
     return (
-      <div>
-        <div>{props.title}</div>
+      <div className="my-4">
+        <h3>{props.title}</h3>
         <ul>
           {props.headings instanceof Array &&
             props.headings.map((headingData) => {
@@ -305,13 +307,13 @@ export const Post = (props) => {
           >
             <img
               src={props.heroImg}
-              className="absolute block rounded-lg w-full h-auto blur-2xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"
+              className="absolute z-0 block rounded-lg w-full h-auto blur-2xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"
               aria-hidden="true"
             />
             <img
               src={props.heroImg}
               alt={props.title}
-              className="relative z-10 mb-14 block rounded-lg w-full h-auto opacity-100"
+              className="relative z-1 mb-14 block rounded-lg w-full h-auto opacity-100"
             />
           </div>
         </div>

@@ -39,6 +39,24 @@ query blogPostQuery($relativePath: String!) {
   }
 }
 
+query blogPostCardQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  post(relativePath: $relativePath) {
+    title
+    category
+    heroImg
+    excerpt
+    date
+    author {
+      ... on Author {
+        name
+        avatar
+      }
+    }
+  }
+}
+
+
 query categoryQuery($relativePath: String!, $category: String!) {
   ...LayoutQueryFragment
   category(relativePath: $relativePath) {

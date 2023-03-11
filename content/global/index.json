@@ -47,7 +47,7 @@
     }
   },
   "theme": {
-    "color": "blue",
+    "color": "gray_400",
     "font": "montserrat",
     "darkMode": "system"
   }

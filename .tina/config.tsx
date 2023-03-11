@@ -1,6 +1,7 @@
 import { defineConfig } from "tinacms";
 import { contentBlockSchema } from "../components/blocks/content";
 import { featureBlockSchema } from "../components/blocks/features";
+import { featuredPostsBlockSchema} from "../components/blocks/featuredPosts";
 import { heroBlockSchema } from "../components/blocks/hero";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { ColorPickerInput } from "../components/fields/color";
@@ -423,6 +424,7 @@ const config = defineConfig({
               heroBlockSchema,
               // @ts-ignore
               featureBlockSchema,
+              featuredPostsBlockSchema,
               contentBlockSchema,
               testimonialBlockSchema,
             ],

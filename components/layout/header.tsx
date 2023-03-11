@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { Container } from "../util/container";
 import { useTheme } from ".";
 import { Icon } from "../util/icon";
+import { useState } from 'react'; // import useState hook
 
 export const Header = ({ data }) => {
   const router = useRouter();
@@ -58,6 +59,8 @@ export const Header = ({ data }) => {
   // If we're on an admin path, other links should also link to their admin paths
   const [prefix, setPrefix] = React.useState("");
 
+  const [showMenu, setShowMenu] = useState(false); // add state to toggle menu visibility
+
   React.useEffect(() => {
     if (window && window.location.pathname.startsWith("/admin")) {
       setPrefix("/admin");
@@ -66,9 +69,9 @@ export const Header = ({ data }) => {
 
   return (
     <div
-      className={`relative overflow-hidden bg-gradient-to-b ${headerColorCss}`}
+      className={`relative bg-gradient-to-b ${headerColorCss}`}
     >
-      <Container size="custom" className="py-0 relative z-10 max-w-8xl">
+      <Container size="custom" className="py-0 z-10 relative  max-w-8xl">
         <div className="flex items-center justify-between gap-6">
           <h4 className="select-none text-lg font-medium tracking-tight mt-4 transition duration-150 ease-out transform">
             <Link href="/" passHref>
@@ -81,38 +84,76 @@ export const Header = ({ data }) => {
                     style: data.icon.style,
                   }}
                 />
-                {data.name}
+                <div className="hidden sm:flex md:hidden lg:flex">{data.name}</div>
               </a>
             </Link>
           </h4>
-          <ul className="flex items-end gap-6 sm:gap-8 lg:gap-10 tracking-[.002em] -mx-4">
-            {data.nav &&
-              data.nav.map((item, i) => {
-                const activeItem =
-                  item.href === ""
-                    ? router.asPath === "/"
-                    : router.asPath.includes(item.href);
-                return (
-                  <li
-                    key={`${item.label}-${i}`}
-                    className={`${
-                      activeItem ? activeItemClasses[theme.color] : ""
-                    }`}
-                  >
-                    <Link href={`${prefix}/${item.href}`} passHref>
-                      <a 
-                        className={`relative select-none	text-base inline-block tracking-wide transition duration-150 ease-out hover:opacity-100 pt-10 pb-6 px-2 ${
-                          activeItem ? `` : `opacity-70`
+          <div className="relative flex  flex-row md:flex-col items-center gap-6 sm:gap-8 lg:gap-10 tracking-[.002em] -mx-4">
+            <button 
+              className="block md:hidden absolute -mx-16 text-gray-800 focus:outline-none focus:ring"
+              onClick={() => setShowMenu(!showMenu)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            {/* Render the original menu only on large screens */}
+            <ul className="hidden md:flex items-end gap-6 md:gap-4 lg:gap-10 tracking-[.002em] -mx-4">
+              {data.nav &&
+                data.nav.map((item, i) => {
+                  const activeItem =
+                    item.href === ""
+                      ? router.asPath === "/"
+                      : router.asPath.includes(item.href);
+                  return (
+                    <li
+                      key={`${item.label}-${i}`}
+                      className={`${
+                        activeItem ? activeItemClasses[theme.color] : ""
+                      }`}
+                    >
+                      <Link href={`${prefix}/${item.href}`} passHref>
+                        <a 
+                          className={`relative select-none  text-base inline-block tracking-wide transition duration-150 ease-out hover:opacity-100 pt-10 pb-6 px-2 ${
+                            activeItem ? `` : `opacity-70`
+                          }`}
+                        >
+                          {item.label}
+                        </a>
+                      </Link>
+                    </li>
+                  );
+                })}
+            </ul>
+            {/* Render the burger menu only on small screens */}
+            {showMenu ? (
+              <ul className="block md:hidden absolute top-full right-0 mt-11 p-2 pl-8 pr-12 bg-white border-2 border-gray-100 rounded-sm shadow-xl">
+                {data.nav &&
+                  data.nav.map((item, i) => {
+                    const activeItem =
+                      item.href === ""
+                        ? router.asPath === "/"
+                        : router.asPath.includes(item.href);
+                    return (
+                      <li
+                        key={`${item.label}-${i}`}
+                        className={`${
+                          activeItem ? activeItemClasses[theme.color] : ""
                         }`}
                       >
-                        {item.label}
-        
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
-          </ul>
+                        <Link href={`${prefix}/${item.href}`} passHref>
+                          <a 
+                            className={`relative select-none  text-base block text-gray-900 text-l tracking-wide transition duration-150 ease-out hover:opacity-100 py-2`}
+                          >
+                            {item.label}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+              </ul>
+            ) : null}
+          </div>
         </div>
         <div
           className={`absolute h-1 bg-gradient-to-r from-transparent ${

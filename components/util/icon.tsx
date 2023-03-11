@@ -361,6 +361,14 @@ const iconColorClass: {
     regular: "text-white opacity-80",
     circle: "bg-white-400 dark:bg-white-500 text-white-50",
   },
+  gray_400: {
+    regular: "text-gray-400 opacity-80",
+    circle: "bg-gray-400 dark:bg-gray-600 text-gray-50",
+  },
+  gray_600: {
+    regular: "text-gray-600 opacity-80",
+    circle: "bg-gray-600 dark:bg-gray-800 text-gray-50",
+  },
 };
 
 const iconSizeClass = {

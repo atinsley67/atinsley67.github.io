@@ -28,50 +28,47 @@ export const Hero = ({ data, parentField }) => {
           data-tinafield={`${parentField}.image`}
           className="relative"
         >
-        {data.image && (
-        <>
-          <img
-            className="absolute z-0 w-full rounded-lg max-w-xs max-w-none h-auto blur-xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light max-h-[35rem] object-cover object-center object-top object-position-y-2/3"
-            src={data.image.src}
-            aria-hidden="true"
-          />
-          <img
-            className="relative z-1 w-full max-w-xs rounded-lg max-w-none h-auto max-h-[35rem] object-cover object-center object-top object-position-y-2/3"
-            alt={data.image.alt}
-            src={data.image.src}
-          />
-        </>
-        )}
-        <div className="absolute z-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 justify-center overflow-hidden ">
-            {data.tagline && (
-              <h2
-                data-tinafield={`${parentField}.tagline`}
-                className="absolute inline-block px-3 py-1 mb-8 text-md tracking-wide title-font z-20"
-              >
-                {data.tagline}
-                <span className="absolute w-full h-full left-0 top-0 rounded-full bg-current opacity-7"></span>
-              </h2>
-            )}
+          {data.image && (
+          <>
+            <img
+              className="absolute z-0 w-full rounded-lg max-w-xs max-w-none h-auto blur-xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light max-h-[35rem] object-cover object-center object-top object-position-y-2/3"
+              src={data.image.src}
+              aria-hidden="true"
+            />
+            <img
+              className="relative z-1 w-full max-w-xs rounded-lg max-w-none h-auto max-h-[35rem] object-cover object-center object-top object-position-y-2/3"
+              alt={data.image.alt}
+              src={data.image.src}
+            />
+            <div className="absolute inset-0 bg-gray-600 bg-opacity-30 w-full h-full rounded-lg"></div>
+          </>
+          )}
+        </div>
+        <div className="absolute z-2 top-1/4 m-10 -translate-y-1/2 sm:-translate-y-1/3 justify-center overflow-hidden ">
             {data.headline && (
               <h3
                 data-tinafield={`${parentField}.headline`}
-                className={`w-full relative	mb-10 text-5xl tracking-normal leading-tight title-font text-white`}
+                className={`w-full relative	mb-10 text-4xl sm:text-5xl font-semibold tracking-normal leading-tight title-font text-white`}
               >
-                <span
-                  className={`bg-clip-text text-transparent bg-gradient-to-r  text-white ${
-                    data.color === "primary"
-                      ? `from-white to-gray-100`
-                      : headlineColorClasses[theme.color]
-                  }`}
-                >
+
                   {data.headline}
-                </span>
+
               </h3>
             )}
+            {data.tagline && (
+              <h2
+                data-tinafield={`${parentField}.tagline`}
+                className="hidden sm:block w-full relative mb-10 text-xl font-normal sm:text-2xl tracking-normal leading-tight title-font text-white"
+              >
+                {data.tagline}
+              </h2>
+            )}
+          </div>
+          <div className="relative md:absolute z-2 m-10 top-1/2 mdtranslate-y-1/2 justify-center md:overflow-hidden ">
             {data.text && (
               <div
                 data-tinafield={`${parentField}.text`}
-                className={`prose prose-lg mx-auto lg:mx-0 mb-10 text-white ${
+                className={`prose prose-lg mx-auto lg:mx-0 mb-10 md:text-white ${
                   data.color === "primary" ? `prose-primary` : `dark:prose-dark`
                 }`}
               >
@@ -81,12 +78,11 @@ export const Hero = ({ data, parentField }) => {
             {data.actions && (
               <Actions
                 parentField={`${parentField}.actions`}
-                className="justify-center lg:justify-start py-2 text-white "
-                parentColor="black"
+                className="lg:justify-start py-2 text-white "
+                parentColor="primary"
                 actions={data.actions}
               />
             )}
-          </div>
         </div>
       </Container>
     </Section>

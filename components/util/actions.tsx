@@ -23,6 +23,10 @@ export const Actions = ({
       "text-white bg-orange-500 hover:bg-orange-600 bg-gradient-to-r from-orange-400 to-orange-600 hover:from-orange-400 hover:to-orange-500",
     yellow:
       "text-gray-800 bg-yellow-500 hover:bg-yellow-600 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-400 hover:to-yellow-500",
+    gray_400:
+      "text-gray-800 bg-gray-400 hover:bg-gray-600 bg-gradient-to-r from-gray-400 to-gray-600 hover:from-gray-400 hover:to-gray-500",
+    gray_600:
+      "text-gray-1000 bg-gray-600 hover:bg-gray-800 bg-gradient-to-r from-gray-600 to-gray-800 hover:from-gray-600 hover:to-gray-800",
   };
 
   const invertedButtonColorClasses = {
@@ -38,6 +42,10 @@ export const Actions = ({
       "text-orange-500 bg-white hover:bg-gray-50 bg-gradient-to-r from-gray-50 to-white hover:to-gray-100",
     yellow:
       "text-yellow-500 bg-white hover:bg-gray-50 bg-gradient-to-r from-gray-50 to-white hover:to-gray-100",
+    gray_400:
+      "text-gray-500 bg-white hover:bg-gray-50 bg-gradient-to-r from-gray-50 to-white hover:to-gray-100",
+    gray_600:
+      "text-gray-500 bg-white hover:bg-gray-50 bg-gradient-to-r from-gray-50 to-white hover:to-gray-100",
   };
 
   const linkButtonColorClasses = {
@@ -53,6 +61,10 @@ export const Actions = ({
       "text-orange-600 dark:text-orange-400 hover:text-orange-400 dark:hover:text-orange-200",
     yellow:
       "text-yellow-600 dark:text-yellow-400 hover:text-yellow-400 dark:hover:text-yellow-200",
+    gray_400:
+      "text-gray-600 dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-200",
+    gray_600:
+      "text-gray-600 dark:text-gray-400 hover:text-gray-400 dark:hover:text-gray-200",
   };
 
   return (
